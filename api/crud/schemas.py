@@ -1,11 +1,13 @@
 from pydantic import BaseModel
 from typing import List
+from datetime import datetime
 
 
 class ActivityBase(BaseModel):
     title: str
     description: str
-
+    location: str  # Make sure this line is included
+    activity_type: str
 
 class ActivityCreate(ActivityBase):
     pass
@@ -13,7 +15,9 @@ class ActivityCreate(ActivityBase):
 
 class Activity(ActivityBase):
     id: int
-    user_id: int
+    location: str
+    activity_type: str
+    time: datetime
 
     class Config:
         orm_mode = True
@@ -43,4 +47,4 @@ class User(UserBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_orm = True
