@@ -2,4 +2,3 @@ __pycache__
 .env
 **/*@gmail.com.json
 venv
-docker-compose.yaml
